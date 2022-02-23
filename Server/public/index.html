@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Socket IO Example</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="chat-app">
+      <div class="left-view">Left View</div>
+      <div class="right-view">
+        <div class="chat-window">
+          <!-- <div class="chat join">Manjul joined the chat</div>
+          <div class="chat leave">Rishabh left the chat</div>
+          <div class="chat left">Holy Hell</div>
+          <div class="chat right">Gujrat Super Challengers</div>
+          <div class="chat right">Delhi Indians</div>
+          <div class="chat left">Mumbai Knight Gaint</div>
+          <div class="chat join">Ashish joined the chat</div>
+          <div class="chat leave">Manjul left the chat</div>
+          <div class="chat left">RCB jindabad</div> -->
+        </div>
+        <div class="chat-input-box">
+          <input type="text" placeholder="Enter Here !!!" class="chat-input" />
+        </div>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.4.1/socket.io.js" integrity="sha512-MgkNs0gNdrnOM7k+0L+wgiRc5aLgl74sJQKbIWegVIMvVGPc1+gc1L2oK9Wf/D9pq58eqIJAxOonYPVE5UwUFA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>"></script>
+    <script src="./script.js"></script>
+    <script>
+      let socket = io();
+    </script>
+  </body>
+</html>
