@@ -8,3 +8,11 @@ socket.on("user-joinned", function(name){
     joinchat.innerHTML = name + "Joinned Chat";
     chatWindow.append(joinchat);  
 });
+
+socket.on("user-leave", function(name){
+    let leftChat = document.createElement("div");
+    leftChat.classList.add("chat");
+    leftChat.classList.add("leave");
+    leftChat.innerHTML = name + "Left Chat";
+    chatWindow.append(leftChat);  
+});

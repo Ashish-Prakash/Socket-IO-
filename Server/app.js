@@ -25,7 +25,24 @@ io.on("connection", function(socket){
         console.log(users);
         socket.broadcast.emit("user-joinned", name);
     })
+
+    socket.on("disconnect", function(){
+        let disconnectedUser;
+        let filterdUsers = users.filter((userObj) => {
+            if(userObj.id == socket.id){
+                disconnectedUser = userObj;
+                return false;
+            }
+            return true;
+        })
+        users = filterdUsers;
+        console.log(users);
+        socket.broadcast.emit("user-leave", disconnectedUser.name);
+    })
 })
+
+
+
 // app.listen(4000, function(){
 //     console.log("App Started");
 // })
