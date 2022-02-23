@@ -12,6 +12,9 @@ inputBox.addEventListener("keypress", function(event){
         senderChat.classList.add("right");
         senderChat.innerHTML = inputBox.value;
         chatWindow.append(senderChat);
+
+        socket.emit("chat-receiver", inputBox.value);
+
         inputBox.value = "";
     }
 })

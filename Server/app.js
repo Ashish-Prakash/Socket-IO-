@@ -24,7 +24,18 @@ io.on("connection", function(socket){
         users.push({id : socket.id, name : name});
         console.log(users);
         socket.broadcast.emit("user-joinned", name);
-    })
+    });
+
+    socket.on("chat-receiver", function(chat){
+        let name;
+        for(let i=0;i<users.length;i++){
+            if(users[i].id == socket.id){
+                name = users[i].name;
+                break;
+            }
+        }
+        socket.broadcast.emit("receiver-chat", {name, chat});
+    });
 
     socket.on("disconnect", function(){
         let disconnectedUser;
@@ -38,14 +49,13 @@ io.on("connection", function(socket){
         users = filterdUsers;
         console.log(users);
         socket.broadcast.emit("user-leave", disconnectedUser.name);
-    })
-})
-
-
+    });
+});
 
 // app.listen(4000, function(){
 //     console.log("App Started");
 // })
+
 server.listen(4000, function(){
     console.log("App started working");
 })
