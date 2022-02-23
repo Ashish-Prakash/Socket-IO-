@@ -16,8 +16,14 @@ const io = new Server(server);
 
 app.use(express.static("public"));
 
+const users = [];
+
 io.on("connection", function(socket){
-    console.log(socket.id, "socket connected");
+    // console.log(socket.id, "socket connected");
+    socket.on("user-connected", function(name){
+        users.push({id : socket.id, name : name});
+        console.log(users);
+    })
 })
 // app.listen(4000, function(){
 //     console.log("App Started");
